@@ -4,14 +4,14 @@ module.exports = {
 };
 
 function memoId(id) {
-  var cache = [];
+  var cache = {};
   return function (id) {
     if (id in cache){
       console.log('id exists');
       return cache[id];
     }else{
       console.log('does not exist... adding to cache');
-      return cache[id] = document.getElementById(id).id;
+      return cache[id] = document.getElementById(id);
     }
   };
 }
@@ -24,7 +24,7 @@ function memoQuery(){
       return cache[el];
     }else{
       console.log('does not exist... adding to cache');
-      return cache[el] = document.querySelector(el).className;
+      return cache[el] = document.querySelectorAll(el);
     }
   };
 }
